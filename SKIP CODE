@@ -1,0 +1,45 @@
+(function () {
+  let count = 0;
+  const maxRuns = 45;
+  const interval = 1500; // 1.5 seconds
+
+  function loopCourse() {
+    if (count >= maxRuns) {
+      console.log(`Loop finished after ${maxRuns} runs.`);
+      return;
+    }
+    count++;
+
+    // Step 1: Set progress bar to 100
+    const progressBar = document.querySelector('#progress-bar');
+    if (progressBar) {
+      progressBar.value = 100;
+      progressBar.dispatchEvent(new Event('input', { bubbles: true }));
+      progressBar.dispatchEvent(new Event('change', { bubbles: true }));
+      console.log("Progress bar set to 100.");
+    } else {
+      console.warn("Progress bar not found.");
+    }
+
+    // Step 2: Change all .not-visited to .visited
+    document.querySelectorAll('.not-visited').forEach(el => {
+      el.classList.remove('not-visited');
+      el.classList.add('visited');
+    });
+    console.log("Updated not-visited → visited.");
+
+    // Step 3: Click the NEXT button
+    const nextBtn = document.querySelector('#btn-next');
+    if (nextBtn) {
+      nextBtn.click();
+      console.log(`NEXT button clicked. Run ${count}/${maxRuns}`);
+      // Schedule next run
+      setTimeout(loopCourse, interval);
+    } else {
+      console.error("NEXT button not found. Stopping loop.");
+    }
+  }
+
+  loopCourse();
+})();
+
