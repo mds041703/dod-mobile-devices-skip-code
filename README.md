@@ -4,7 +4,7 @@
 
 ## How to Use
 
-1. Open **WEBSITE PLACE HOLDER**  
+1. Open dl.dod.cyber.mil/wp-content/uploads/trn/online/dod-mobile-devices/launchPage.htm  
 2. Click **Retake Test**  
 3. When the new website opens:  
    - Right-click anywhere on the page  
